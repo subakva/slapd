@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+require "rubygems"
+require "thor"
+
+if File.exists?(File.join(File.expand_path('../..', __FILE__), '.git'))
+  slapd_path = File.expand_path('../../lib', __FILE__)
+  $:.unshift(slapd_path)
+end
+
+require "slapd"
+Slapd::CLI::Root.start
